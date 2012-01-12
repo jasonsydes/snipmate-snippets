@@ -1,0 +1,35 @@
+# Initial port of datamapper snippets from https://github.com/drnic/datamapper-tmbundle
+snippet delat
+		property :deleted_at, ParanoidDateTime
+snippet all
+		all(:$0)
+snippet bt
+		belongs_to :${1:object}${2:, :class_name =&gt; "${3:${1/[[:alpha:]]+|(_)/(?1::\u$0)/g}}", :foreign_key =&gt; "${4:${1}_id}"}
+snippet count
+		count(:$0)
+snippet create
+		create(:$0)
+snippet doc
+		# $1
+snippet ea
+		each($1) do |i|
+snippet fina
+		find(:all${1:, :conditions =&gt; ['${2:${3:field} = ?}', ${5:true}]})
+snippet finf
+		find(:first${1:, :conditions =&gt; ['${2:${3:field} = ?}', ${5:true}]})
+snippet first
+		first(:$0)
+snippet habtm
+		has n, :${1:objects}${2:, :through =&gt; :${4:taggings}}
+snippet hm
+		has n :${1:objects}
+snippet ho
+		has 1, :${1:object}
+snippet :order
+		:order =&gt; [:${1:created_at}.${2:desc}]$0
+snippet prop
+		property :${1:property_name}, ${2:String}
+snippet timestamps
+		property :created_at, DateTime
+snippet vp
+		validates_presence_of :${1:attribute}${2:, :message =&gt; "${4:$1 must not be blank}"}
